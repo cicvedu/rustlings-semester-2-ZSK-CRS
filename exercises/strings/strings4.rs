@@ -7,7 +7,6 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
 
 fn string_slice(arg: &str) {
     println!("{}", arg);
@@ -17,9 +16,9 @@ fn string(arg: String) {
 }
 
 fn main() {
-    ???("blue");
-    ???("red".to_string());
-    ???(String::from("hi"));
+    string_slice("blue");
+    string("red".to_string());
+    string(String::from("hi"));
     ???("rust is fun!".to_owned());
     ???("nice weather".into());
     ???(format!("Interpolation {}", "Station"));
