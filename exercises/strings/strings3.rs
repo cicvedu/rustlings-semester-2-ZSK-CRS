@@ -4,19 +4,22 @@
 // hint.
 
 
-fn trim_me(input: &str) -> String {
-    // TODO: Remove whitespace from both ends of a string!
-    imput.trim()
+fn trim_me(input: &str) -> &str {
+    input.trim()
 }
 
-fn compose_me(input: &mut String) -> String {
+fn compose_me(mut input: String) -> String {
     // TODO: Add " world!" to the string! There's multiple ways to do this!
-    input += "  world!"
+    input.push_str(" world!");
+    return input;
+
+    // format!("{} world!", input) // 审题
 }
 
-fn replace_me(input: &mut str) -> String {
+fn replace_me(input: &str) -> String {
     // TODO: Replace "cars" in the string with "balloons"!
-    input.replace("cars","balloons")
+    //replace是返回一个新的字符串，而不是操作原来的字符串,所以不用不用管是String还是切片
+    input.replace("cars", "balloons") // 替换单词
 }
 
 #[cfg(test)]
@@ -32,8 +35,8 @@ mod tests {
 
     #[test]
     fn compose_a_string() {
-        assert_eq!(compose_me("Hello"), "Hello world!");
-        assert_eq!(compose_me("Goodbye"), "Goodbye world!");
+        assert_eq!(compose_me("Hello".to_string()), "Hello world!");
+        assert_eq!(compose_me("Goodbye".to_string()), "Goodbye world!");
     }
 
     #[test]
